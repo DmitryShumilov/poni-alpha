@@ -1,0 +1,72 @@
+/* KPICard Component Styles */
+
+.kpi-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.kpi-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.kpi-icon {
+  font-size: 20px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+  animation: iconFloat 3s ease-in-out infinite;
+}
+
+@keyframes iconFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.kpi-glow {
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.15) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.kpi-card:hover .kpi-glow {
+  opacity: 1;
+}
+
+/* Анимация появления карточки */
+.kpi-card {
+  animation: cardFadeIn 0.6s ease-out;
+}
+
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Задержка анимации для каждой карточки */
+.kpi-grid .kpi-card:nth-child(1) { animation-delay: 0.1s; }
+.kpi-grid .kpi-card:nth-child(2) { animation-delay: 0.15s; }
+.kpi-grid .kpi-card:nth-child(3) { animation-delay: 0.2s; }
+.kpi-grid .kpi-card:nth-child(4) { animation-delay: 0.25s; }
+.kpi-grid .kpi-card:nth-child(5) { animation-delay: 0.3s; }
+.kpi-grid .kpi-card:nth-child(6) { animation-delay: 0.35s; }
